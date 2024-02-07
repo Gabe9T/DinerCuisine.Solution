@@ -1,0 +1,15 @@
+@model Restaurant.Models.Diner
+
+<h2>Add a cuisine option to this diner</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.DinerId)
+
+    @Html.Label("Select a cuisine")
+    @Html.DropDownList("CuisineId")
+
+    <input type="submit" value="Add" />
+}
+
+@Html.ActionLink("Back to diners", "Index", new { @class = "btn btn-primary " })
