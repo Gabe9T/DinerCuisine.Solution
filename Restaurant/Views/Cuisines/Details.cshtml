@@ -1,6 +1,10 @@
 @model Restaurant.Models.Cuisine
 @using Restaurant.Models
 
+@{
+    ViewData["Title"] = "Cuisine Details";
+    Layout = "_Layout";
+}
 <h2>Details</h2>
 <h3>Name: @Model.Name</h3>
 <hr />
@@ -20,7 +24,7 @@ else
 }
 <br />
 
-@Html.ActionLink("Add a diner to this cuisine", "AddDiner", new { id = Model.CuisineId }, new { @class = "btn btn-success" }) |
-@Html.ActionLink("Edit cuisine", "Edit", new { id = Model.CuisineId }, new { @class = "btn btn-warning" }) |
-@Html.ActionLink("Delete cuisine", "Delete", new { id = Model.CuisineId }, new { @class = "btn btn-danger" }) |
-@Html.ActionLink("Back To List", "Index", new { id = Model.CuisineId }, new { @class = "btn btn-success" })
+@Html.ActionLink("Add a diner to this cuisine", "AddDiner", new { id = Model.CuisineId }, new { @class = "btn btn-green" }) |
+@Html.ActionLink("Edit cuisine", "Edit", new { id = Model.CuisineId }, new { @class = "btn btn-yellow" }) |
+@Html.ActionLink("Delete cuisine", "Delete", new { id = Model.CuisineId }, new { @class = "btn btn-red" }) |
+@Html.ActionLink("Back To List", "Index", new { id = Model.CuisineId }, new { @class = "btn btn-blue" })

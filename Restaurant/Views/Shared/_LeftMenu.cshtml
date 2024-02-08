@@ -1,0 +1,10 @@
+@using Restaurant.Models
+
+<div class="left-menu">
+    <h3>Popular Cuisines</h3>
+
+    @foreach (Cuisine c in ViewBag.Cuis)
+    {
+        @Html.ActionLink($"{c.Name}", "Details", "Cuisines", new { id = c.CuisineId })
+    }
+</div>

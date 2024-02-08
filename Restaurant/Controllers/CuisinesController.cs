@@ -13,14 +13,22 @@ public class CuisinesController : Controller
     {
         _db = db;
     }
+
+    private List<Cuisine> Menu()
+    {
+        List<Cuisine> menuData = _db.Cuisines.ToList();
+        return menuData;
+    }
     public ActionResult Index()
     {
         List<Cuisine> model = _db.Cuisines.ToList();
+        ViewBag.Cuis = Menu();
         return View(model);
     }
 
     public ActionResult Create()
     {
+        ViewBag.Cuis = Menu();
         return View();
     }
 
@@ -41,6 +49,7 @@ public class CuisinesController : Controller
 
     public ActionResult Details(int id)
     {
+        ViewBag.Cuis = Menu();
         Cuisine thisCuisine = _db.Cuisines
             .Include(cuisine => cuisine.JoinEntities)
             .ThenInclude(join => join.Diner)
@@ -50,6 +59,7 @@ public class CuisinesController : Controller
 
     public ActionResult Edit(int id)
     {
+        ViewBag.Cuis = Menu();
         Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
         return View(thisCuisine);
     }
@@ -64,6 +74,7 @@ public class CuisinesController : Controller
 
     public ActionResult Delete(int id)
     {
+        ViewBag.Cuis = Menu();
         Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
         return View(thisCuisine);
     }
@@ -79,6 +90,7 @@ public class CuisinesController : Controller
 
     public ActionResult AddDiner(int id)
     {
+        ViewBag.Cuis = Menu();
         Cuisine cuisine = _db.Cuisines.FirstOrDefault(c => c.CuisineId == id);
         ViewBag.DinerId = new SelectList(_db.Diners, "DinerId", "Name");
         return View(cuisine);

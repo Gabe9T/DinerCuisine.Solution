@@ -11,13 +11,16 @@
     {
         <h3>No diners have been added yet</h3>
     }
-
+    </div>
+<div class="columns">
     @foreach (Diner diner in Model)
     {
-        <h3>@Html.ActionLink($"{diner.Name}", "Details", new { id = diner.DinerId })</h3>
+
+        @Html.ActionLink($"{diner.Name}", "Details", "Diners", new { id = diner.DinerId }, new { @class = "card" })
+
     }
 </div>
-
-@Html.ActionLink("Add Diner", "Create", "Diners", null, new { @class = "btn btn-success " })
-<br />
-@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-primary " })
+<div class="button-control">
+@Html.ActionLink("Add Diner", "Create", "Diners", null, new { @class = "btn btn-green " })
+@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-blue " })
+</div>

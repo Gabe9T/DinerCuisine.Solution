@@ -11,9 +11,17 @@ public class HomeController : Controller
         _db = db;
     }
 
+    private List<Cuisine> Menu()
+    {
+        List<Cuisine> menuData = _db.Cuisines.ToList();
+        return menuData;
+    }
+
+
     [HttpGet("/")]
     public ActionResult Index()
     {
+        ViewBag.Cuis = Menu();
         return View();
     }
 }

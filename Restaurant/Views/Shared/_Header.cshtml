@@ -1,0 +1,52 @@
+<!-- <div class="header">
+    <div class="logo">
+        <a href="/">
+            <img src="~/images/diner2.png" alt="Diner&Cuisine logo">
+        </a>
+    </div>
+    <div class="title">
+        <h1>Diner & Cuisine</h1>
+            <link rel="stylesheet" href="styles.css"> 
+
+        <div class="button-container">
+@Html.ActionLink("See all diners", "Index", "Diners", null, new { @class = "btn" })
+
+                <br />
+@Html.ActionLink("See all cuisines", "Index", "Cuisines", null, new { @class = "btn" })
+        </div>
+
+    </div>
+    <div class="filler"></div>
+    </div> -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+<met    a name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H  eader</title>
+   <link re l="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    </head>
+<body>
+
+ <div class    ="   header">
+      <div   class="logo">
+            <a href="/">
+                <img src="~/images/diner2.png" alt="Diner&Cuisine logo" class="logo-img">
+            </a>
+    </div>
+    <di
+v class="title">
+        <h1>Diner & Cuisine</h1>
+        <div class="button-container">
+                @Html.ActionLink("See all diners", "Index", "Diners", null, new { @class = "btn" })
+
+            <br />
+                @Html.ActionLink("See all cuisines", "Index", "Cuisines", null, new { @class = "btn" })
+        </div>
+    </div>
+    <div class="filler"></div>
+</div>
+
+</body>
+</html>

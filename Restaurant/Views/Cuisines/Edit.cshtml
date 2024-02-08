@@ -8,6 +8,10 @@
 
 <h4>Edit this cuisine: @Html.DisplayFor(model => model.Name)</h4>
 
+@{
+    ViewData["Title"] = "Edit Cuisine";
+    Layout = "_Layout";
+}
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.CuisineId)
@@ -15,6 +19,7 @@
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
 
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" class="btn btn-green" />
+    <br />
 }
-<p>@Html.ActionLink("Back to list", "Index")</p>
+@Html.ActionLink("Back To List", "Index", "Cuisine", null, new { @class = "btn btn-blue " })
