@@ -1,29 +1,31 @@
 @model Restaurant.Models.Diner
 @using Restaurant.Models
-<div id="content">
+
+<div class="content">
   <h2>@Html.DisplayFor(model => model.Name)</h2>
   <hr />
   <h3>@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)</h3>
+
+  @if (@Model.JoinEntities.Count == 0)
+  {
+    <p class="pl-details">This diner doesnt serve any cuisines.</p>
+  }
+  else
+  {
+    <h4>This diner serves the following cuisines:</h4>
+
+    <ul>
+      @foreach (CuisineDiner join in Model.JoinEntities)
+      {
+        <li>@join.Cuisine.Name</li>
+      }
+    </ul>
+  }
+
+
+
+  @Html.ActionLink("Add a cuisine to this diner", "AddCuisine", new { id = Model.DinerId }, new { @class = "btn btn-green" }) |
+  @Html.ActionLink("Edit diner", "Edit", new { id = Model.DinerId }, new { @class = "btn btn-yellow" }) |
+  @Html.ActionLink("Delete diner", "Delete", new { id = Model.DinerId }, new { @class = "btn btn-red" }) |
+  @Html.ActionLink("Back To List", "Index", "Diners", null, new { @class = "btn btn-blue" })
 </div>
-@if (@Model.JoinEntities.Count == 0)
-{
-  <p class="pl-details">This diner doesnt serve any cuisines.</p>
-}
-else
-{
-  <h4>This diner serves the following cuisines:</h4>
-
-  <ul>
-    @foreach (CuisineDiner join in Model.JoinEntities)
-    {
-      <li>@join.Cuisine.Name</li>
-    }
-  </ul>
-}
-
-
-
-@Html.ActionLink("Add a cuisine to this diner", "AddCuisine", new { id = Model.DinerId }, new { @class = "btn btn-success" }) |
-@Html.ActionLink("Edit diner", "Edit", new { id = Model.DinerId }, new { @class = "btn btn-warning" }) |
-@Html.ActionLink("Delete diner", "Delete", new { id = Model.DinerId }, new { @class = "btn btn-danger" }) |
-@Html.ActionLink("Back To List", "Index", "Diners", null, new { @class = "btn btn-primary" })

@@ -1,8 +1,4 @@
-@{
-    Layout = "_Layout";
-    ViewData["Title"] = "Diner Search";
-}
-<div id="content">
+<div class="content">
     <h1>Diners</h1>
 
     @using Restaurant.Models;
@@ -11,7 +7,7 @@
     {
         <h3>No diners have been added yet</h3>
     }
-    </div>
+</div>
 <div class="columns">
     @foreach (Diner diner in Model)
     {
@@ -21,6 +17,6 @@
     }
 </div>
 <div class="button-control">
-@Html.ActionLink("Add Diner", "Create", "Diners", null, new { @class = "btn btn-green " })
-@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-blue " })
+    @Html.ActionLink("Add Diner", "Create", "Diners", null, new { @class = "btn btn-green " })
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-blue " })
 </div>

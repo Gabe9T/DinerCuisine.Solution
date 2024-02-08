@@ -1,52 +1,51 @@
-<!-- <div class="header">
-    <div class="logo">
-        <a href="/">
-            <img src="~/images/diner2.png" alt="Diner&Cuisine logo">
-        </a>
-    </div>
-    <div class="title">
-        <h1>Diner & Cuisine</h1>
-            <link rel="stylesheet" href="styles.css"> 
+<!DOCTYPE html>
+<html lang="en">
 
-        <div class="button-container">
-@Html.ActionLink("See all diners", "Index", "Diners", null, new { @class = "btn" })
-
-                <br />
-@Html.ActionLink("See all cuisines", "Index", "Cuisines", null, new { @class = "btn" })
-        </div>
-
-    </div>
-    <div class="filler"></div>
-    </div> -->
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8">
-<met    a name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>H  eader</title>
-   <link re l="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    </head>
+    <met a name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>H eader</title>
+        <link re l="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+
 <body>
 
- <div class    ="   header">
-      <div   class="logo">
+    <div class="header">
+        <div class="logo">
             <a href="/">
                 <img src="~/images/diner2.png" alt="Diner&Cuisine logo" class="logo-img">
             </a>
-    </div>
-    <di
-v class="title">
-        <h1>Diner & Cuisine</h1>
-        <div class="button-container">
+        </div>
+        <div class="title">
+            <h1>Diner & Cuisine</h1>
+            <div class="button-container">
                 @Html.ActionLink("See all diners", "Index", "Diners", null, new { @class = "btn" })
 
-            <br />
+                <br />
                 @Html.ActionLink("See all cuisines", "Index", "Cuisines", null, new { @class = "btn" })
+            </div>
+        </div>
+        <div class="filler">
+            <div class="search-bar">
+                @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+                {
+                    <div class=search-select>
+                        @Html.Label("searchType", "Search for:")
+                        <br />
+                        @Html.RadioButton("searchType", "cuisines", true, new { id = "cuisineRadio" }) <label for="cuisineRadio">Cuisines</label>
+                        <br />
+                        @Html.RadioButton("searchType", "diners", new { id = "dinerRadio" }) <label for="dinerRadio">Diners</label>
+                    </div>
+                    <div class=search-input>
+                        @Html.TextBox("searchTerm")
+
+                        <input class="button" type="submit" value="Search" class="btn btn-green">
+                    </div>
+                }
+            </div>
         </div>
     </div>
-    <div class="filler"></div>
-</div>
 
 </body>
+
 </html>

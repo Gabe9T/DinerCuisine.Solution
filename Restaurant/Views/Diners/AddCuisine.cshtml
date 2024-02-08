@@ -1,15 +1,17 @@
 @model Restaurant.Models.Diner
 
-<h2>Add a cuisine option to this diner</h2>
+<div class="content">
+    <h2>Add a cuisine option to this diner</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.DinerId)
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.DinerId)
 
-    @Html.Label("Select a cuisine")
-    @Html.DropDownList("CuisineId")
+        @Html.Label("Select a cuisine")
+        @Html.DropDownList("CuisineId")
+        <br />
+        <input type="submit" value="Add" class="btn btn-green " />
+    }
 
-    <input type="submit" value="Add" class="btn btn-green " />
-}
-
-@Html.ActionLink("Back to diners", "Index", new { @class = "btn btn-blue " })
+    @Html.ActionLink("Back to diners", "Index", "Diners", null, new { @class = "btn btn-blue " })
+</div>

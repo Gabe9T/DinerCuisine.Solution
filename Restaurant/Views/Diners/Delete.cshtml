@@ -1,14 +1,12 @@
-@{
-    Layout = "_Layout";
-}
-
 @model Restaurant.Models.Diner
 
-<h2>Are you sure you want to delete @Model.Name?</h2>
+<div class="content">
+    <h2>Are you sure you want to delete @Model.Name?</h2>
 
-@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
-@using (Html.BeginForm())
-{
-    <input type="submit" value="Delete" class="btn btn-danger" />
-}
-@Html.ActionLink("Back To List", "Index", "Diners", null, new { @class = "btn btn-success" })
+    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    }
+    @Html.ActionLink("Back To List", "Index", "Diners", null, new { @class = "btn btn-success" })
+</div>
