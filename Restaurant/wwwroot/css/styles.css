@@ -90,10 +90,12 @@ body {
     font-family: 'Lilita One', sans-serif;
     color: #BD0808;
     text-align: center;
+
 }
 
 .title h1 {
-    padding: 50px;
+    padding-top: 50px;
+    font-size: 3em;
 }
 
 @keyframes spin {
@@ -163,8 +165,34 @@ body {
 
 .search-input .button {
     background-color: #89FC00;
+    border: 0;
+    border-radius: 4px;
 }
 
 .search-bar {
     width: 80%;
+    padding-top: 50px;
+}
+
+.details {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+
+ul {
+    text-align: center;
+    width: 25%;
+    margin: auto;
+}
+
+.right-spacer {
+    float: right;
+    width: 20%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+a {
+    color: #9067C6;
 }
